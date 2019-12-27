@@ -34,8 +34,11 @@ cd $BASEDIR
 
 #write out current crontab
 crontab -l > mycron
-#echo new cron into cron file
-echo "*/5 * * * *     sh $BASEDIR/stats.sh" >> mycron
-#install new cron file
-crontab mycron
+croncheck=`cat mycron`
+if [ ! "$croncheck" == "mailStatsCollector" ]; then
+	echo "Package  $pack already installed"
+else
+	echo "$pack is not INSTALLED!!!!"
+#	yum install $pack -y
+fi
 rm mycron
