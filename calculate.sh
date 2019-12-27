@@ -16,28 +16,34 @@ ra=`echo $firstline | awk -F: '{print $3}'`
 rb=`echo $secline| awk -F: '{print $3}'`
 
 received=$(( rb  - ra ))
-echo $received
+#########################
+#echo "received:$received"
 
 da=`echo $firstline | awk -F: '{print $4}'`
 db=`echo $secline| awk -F: '{print $4}'`
 
 delivered=$(( db - da ))
-echo $delivered
+#########################
+#echo "delivered:$delivered"
 
 dfa=`echo $firstline | awk -F: '{print $5}'`
 dfb=`echo $secline| awk -F: '{print $5}'`
 
 deferred=$(( dfb - dfa ))
-echo $deferred
+#########################
+#echo "deferred:$deferred"
 
 ba=`echo $firstline | awk -F: '{print $6}'`
 bb=`echo $secline| awk -F: '{print $6}'`
 
 bounced=$(( bb - ba ))
-echo $bounced
+#########################
+#echo "bounced:$bounced"
 
 ra=`echo $firstline | awk -F: '{print $7}'`
 rb=`echo $secline| awk -F: '{print $7}'`
 
 rejected=$(( rb - ra ))
-echo $rejected
+#########################
+#echo "rejected:$rejected"
+echo "{ received:$received, delivered:$delivered, deferred:$deferred, bounced:$bounced, rejected:$rejected }" > results
