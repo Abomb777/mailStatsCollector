@@ -1,5 +1,8 @@
-firstline=`cat /projects/parse_stats/stats.txt | head -n 1`
-secline=`cat /projects/parse_stats/stats.txt | tail -n 2`
+BASEDIR=$(dirname "$0")
+cd $BASEDIR
+
+firstline=`cat $BASEDIR/stats.txt | head -n 1`
+secline=`cat $BASEDIR/stats.txt | tail -n 2`
 
 #echo `echo $firstline | awk -F: '{print $3}'`
 
