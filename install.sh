@@ -35,13 +35,13 @@ cd $BASEDIR
 #write out current crontab
 crontab -l > mycron
 croncheck=`cat mycron`
-echo "$croncheck"
-if [[ ! "$croncheck" == *"parse_stats"* ]]; then
-	echo "1111"
-else
-	echo "0000"
-fi
-if [[ ! "$croncheck" == *"mailStatsCollector"* ]]; then
+#echo "$croncheck"
+#if [[ ! "$croncheck" == *"parse_stats"* ]]; then
+#	echo "1111"
+#else
+#	echo "0000"
+#fi
+if [[ "$croncheck" == *"mailStatsCollector"* ]]; then
 	echo "Cron installed"
 else
 	echo "Going to add CRONJOB!!!!"
