@@ -11,6 +11,10 @@ secline=`cat $BASEDIR/stats.txt | tail -n 2`
 #echo $((`echo $firstline | awk -F: '{print $3}'` + 1))
 
 #received=$((`echo $firstline | awk -F: '{print $3}'` + 0)) - $((`echo $secline| awk -F: '{print $3}'` + 0))
+adate=`echo $firstline | awk -F: '{print $2}'`
+bdate=`echo $secline| awk -F: '{print $2}'`
+
+received=$(( rb  - ra ))
 
 ra=`echo $firstline | awk -F: '{print $3}'`
 rb=`echo $secline| awk -F: '{print $3}'`
@@ -40,10 +44,14 @@ bounced=$(( bb - ba ))
 #########################
 #echo "bounced:$bounced"
 
-ra=`echo $firstline | awk -F: '{print $7}'`
-rb=`echo $secline| awk -F: '{print $7}'`
+rja=`echo $firstline | awk -F: '{print $7}'`
+rjb=`echo $secline| awk -F: '{print $7}'`
 
-rejected=$(( rb - ra ))
+rejected=$(( rjb - rja ))
 #########################
 #echo "rejected:$rejected"
-echo "{ received:$received, delivered:$delivered, deferred:$deferred, bounced:$bounced, rejected:$rejected }" > results
+if [[ "$adate"=="$bdate" ]]; then
+	echo "{ received:$received, delivered:$delivered, deferred:$deferred, bounced:$bounced, rejected:$rejected }" > results
+else
+	echo "{ received:$ra, delivered:$da, deferred:$dfa, bounced:$ba, rejected:$rja }" > results
+fi

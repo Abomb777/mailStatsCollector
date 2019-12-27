@@ -7,5 +7,5 @@ line=`cat /var/log/maillog | /usr/sbin/pflogsumm | sed -n '/^Per\-Day Traffic Su
 #echo `echo $line | awk -F: '{print $2}'`
 #echo "-$secline-"
 #exit 0
-echo -e "1$secline\n2$line\n"
+#echo -e "1$secline\n2$line\n"
 echo -e "$secline\n$line\n" > $BASEDIR/stats.txt
