@@ -1,3 +1,4 @@
+#!/bin/sh
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 secline=`cat $BASEDIR/stats.txt | tail -n +2`

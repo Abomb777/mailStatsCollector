@@ -9,7 +9,9 @@ else
 	yum install $pack -y
 fi
 
-BASEDIR=$(dirname "$0")
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+#BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
 #write out current crontab
