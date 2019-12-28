@@ -41,7 +41,7 @@ if [[ "$croncheck" == *"mailStatsCollector"* ]]; then
 else
 	echo "Going to add CRONJOB!!!!"
 	#echo new cron into cron file
-	echo "*/5 * * * *     sh $BASEDIR/stats.sh" >> mycron
+	echo "*/5 * * * *     sh $BASEDIR/stats.sh > /dev/null" >> mycron
 	#install new cron file
 	crontab mycron
 #	yum install $pack -y
