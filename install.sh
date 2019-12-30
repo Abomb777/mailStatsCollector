@@ -1,5 +1,4 @@
 #!/bin/sh
-yum update -y
 
 check_for_program() {
   local program 

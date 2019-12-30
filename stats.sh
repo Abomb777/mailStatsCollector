@@ -1,5 +1,6 @@
 #!/bin/sh
-BASEDIR=$(dirname "$0")
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+#BASEDIR=$(dirname "$0")
 cd $BASEDIR
 secline=`cat $BASEDIR/stats.txt | tail -n +2`
 #secline=`cat $BASEDIR/stats.txt | head -1`
@@ -9,3 +10,4 @@ line=`cat /var/log/maillog | /usr/sbin/pflogsumm | sed -n '/^Per\-Day Traffic Su
 #exit 0
 #echo -e "1$secline\n2$line\n"
 echo -e "$secline\n$line\n" > $BASEDIR/stats.txt
+sh $BASEDIR/calculate.sh

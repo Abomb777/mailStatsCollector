@@ -1,4 +1,5 @@
-BASEDIR=$(dirname "$0")
+#BASEDIR=$(dirname "$0")
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $BASEDIR
 
 firstline=`cat $BASEDIR/stats.txt | head -n 1`
