@@ -4,7 +4,7 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $BASEDIR
 secline=`cat $BASEDIR/stats.txt | tail -n +2`
 #secline=`cat $BASEDIR/stats.txt | head -1`
-line=`cat /var/log/maillog | /usr/sbin/pflogsumm | sed -n '/^Per\-Day Traffic Summary/,/Per.*/{/Per.*/d;p}' | tail -n2 | sed 's/ \+ /:/g'`
+line=`cat /var/log/maillog | /usr/sbin/pflogsumm | sed -n '/^Per\-Day Traffic Summary/,/Per.*/{/Per.*/d;p}' | tail -n2 | sed 's/ \+  /:/g'`
 #echo `echo $line | awk -F: '{print $2}'`
 #echo "-$secline-"
 #exit 0
