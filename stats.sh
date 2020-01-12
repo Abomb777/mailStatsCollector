@@ -21,7 +21,7 @@ if [ "$line" == "" ]; then
 	line="$line`date +'%-b %-d %Y'`"
 	for addr in $lineparams
 	do
-			if [ "$counter" -eq 0 ] || [ "$counter" -eq 2 ] || [ "$counter" -eq 6 ] || [ "$counter" -eq 8 ] || [ "$counter" -eq 10 ] ; then
+			if [ "$counter" -eq 0 ] || [ "$counter" -eq 2 ] || [ "$counter" -eq 4 ] || [ "$counter" -eq 6 ] || [ "$counter" -eq 8 ] ; then
 					line="$line:$addr"
 			fi
 			counter=$((counter+1))
