@@ -13,6 +13,7 @@ if [ "$line" == "" ]; then
 #no statistic per day
 	IN=`cat /var/log/maillog | /usr/sbin/pflogsumm | sed -n '/^messages/,/bytes.*/{/bytes.*/d;p}' | tail -n +2`
 	lineparams=$(echo $IN | tr " " "\n")
+	lineparams=$(echo $IN | grep -o '[^:]*\s*[^:]*' | grep -E '(received|delivered|deferred|bounced|rejected)' | sed -E "s/\(.*//")
 	counter=0
 
 	line=":"
