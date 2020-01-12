@@ -34,3 +34,7 @@ sudo chmod a+x /usr/local/pflogsumm/pflogsumm.pl
 ```ssh
 sudo perl /usr/local/pflogsumm/pflogsumm.pl /var/log/maillog
 ```
+# Crontab send mail log summary at AM 1:00 everyday to root
+```ssh
+00 01 * * * perl /usr/sbin/pflogsumm -e -d yesterday /var/log/maillog | mail -s 'Logwatch for Postfix' root
+```
